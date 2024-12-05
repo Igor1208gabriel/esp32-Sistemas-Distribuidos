@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <title>Sistema Desktop-ESP32</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            line-height: 1.6;
+            margin: 20px;
+            color: #333;
+        }
+        h1, h2 {
+            color: #0056b3;
+        }
+        code {
+            background: #f4f4f4;
+            padding: 2px 4px;
+            border-radius: 4px;
+            font-family: Consolas, monospace;
+        }
+        pre {
+            background: #f9f9f9;
+            border: 1px solid #ddd;
+            padding: 10px;
+            overflow-x: auto;
+        }
+        ul {
+            list-style-type: square;
+        }
+    </style>
+</head>
+<body>
+    <h1>Sistema Desktop-ESP32 via TCP/IP e UDP</h1>
+
+    <h2>*O quê?*</h2>
+    <p>Este sistema conecta um computador desktop a um ESP32, permitindo o controle remoto de LEDs e a leitura de sensores ultrassônicos. A comunicação ocorre via <b>TCP/IP</b> para comandos e <b>UDP</b> para envio de diagnósticos.</p>
+    
+    <h2>*Quando?*</h2>
+    <p>Agora!</p>
+
+    <h2><b>*Como?*</b></h2>
+    <ul>
+        <li><b>Comunicação TCP:</b> O desktop se conecta ao ESP32 como cliente e envia comandos para executar ações como ligar/desligar LEDs, obter leituras do sensor ultrassônico e interpretar mensagens em código Morse.</li>
+        <li><b>Comunicação UDP:</b> O ESP32 utiliza UDP para enviar mensagens de diagnóstico ou status ao desktop, como confirmações de ações realizadas ou valores medidos.</li>
+    </ul>
+    
+    <h2>Como Usar:</h2>
+    <p>Se conecte à rede "Isgro" com a senha "12345678" e rode o código <code>pubsubESP32.cpp</code>.</p>
+
+
+    <h2>Componentes principais</h2>
+    <h3>Desktop (C++)</h3>
+    <ul>
+        <li><b>Thread TCP:</b> Envia comandos ao ESP32 através de uma conexão TCP e interage com o usuário.</li>
+        <li><b>Thread UDP:</b> Recebe mensagens de diagnóstico enviadas pelo ESP32 e exibe no console.</li>
+    </ul>
+    <pre>
+<b>Comandos:</b>
+- LED_ON: Liga o LED.
+- LED_OFF: Desliga o LED.
+- LED: Alterna o estado do LED.
+- SENSOR: Obtém a distância medida pelo sensor ultrassônico.
+- MORSE:< String > Interpreta o texto em código Morse.
+    </pre>
+
+    <h3>ESP32</h3>
+    <ul>
+        <li><b>Servidor TCP:</b> Escuta comandos do desktop e executa as ações apropriadas.</li>
+        <li><b>Cliente UDP:</b> Envia mensagens de diagnóstico de volta ao desktop.</li>
+        <li><b>Hardware:</b> Inclui controle de LEDs e medição de distância usando um sensor ultrassônico (trig/echo).</li>
+        <li><b>Tradutor Morse:</b> Converte texto em sinais de LED baseados no código Morse.</li>
+    </ul>
+
+    <h2>Características importantes</h2>
+    <ul>
+        <li>Utiliza <code>WiFi.h</code> para comunicação sem fio.</li>
+        <li>As funções são assíncronas, permitindo simultaneidade entre TCP e UDP.</li>
+        <li>O sistema é modular e fácil de adaptar para novas funcionalidades.</li>
+    </ul>
+
+    <h2>Fluxo do Sistema</h2>
+    <ol>
+        <li><b>Inicialização:</b> O ESP32 conecta-se à rede Wi-Fi e inicia os servidores TCP e UDP.</li>
+        <li><b>Conexão:</b> O desktop estabelece conexão com o ESP32 via TCP e começa a enviar comandos.</li>
+        <li><b>Execução:</b> O ESP32 executa as ações correspondentes aos comandos recebidos.</li>
+        <li><b>Diagnóstico:</b> Mensagens de feedback e dados são enviadas do ESP32 ao desktop via UDP.</li>
+    </ol>
+
+    </body>
+</html>

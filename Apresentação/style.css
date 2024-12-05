@@ -1,0 +1,71 @@
+/* Estilo geral */
+body {
+    font-family: Arial, sans-serif;
+    line-height: 1.6;
+    background-color: #f9f9f9;
+    color: #333;
+    margin: 0;
+    padding: 0;
+}
+
+/* Cabeçalho */
+header {
+    background-color: #4CAF50;
+    color: white;
+    padding: 20px 10px;
+    text-align: center;
+    font-size: 1.8rem;
+    font-weight: bold;
+}
+
+/* Seções */
+section {
+    margin: 20px auto;
+    padding: 15px;
+    max-width: 800px;
+    background-color: white;
+    border-radius: 8px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+/* Títulos */
+section h2 {
+    color: #4CAF50;
+    font-size: 1.5rem;
+    border-bottom: 2px solid #4CAF50;
+    padding-bottom: 5px;
+    margin-bottom: 10px;
+}
+
+/* Texto */
+section p, section pre {
+    margin-bottom: 15px;
+}
+
+/* Código */
+code, pre {
+    background-color: #f4f4f4;
+    color: #2e2e2e;
+    padding: 5px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    font-family: "Courier New", Courier, monospace;
+    font-size: 0.95rem;
+}
+
+/* Botão de destaque */
+button {
+    display: block;
+    background-color: #4CAF50;
+    color: white;
+    padding: 10px 15px;
+    margin: 20px auto;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 1rem;
+}
+
+button:hover {
+    background-color: #45a049;
+}
